@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nginx + Filebeat Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        .links a { display: block; margin: 10px 0; padding: 10px; background: #f0f0f0; text-decoration: none; }
+        .links a:hover { background: #e0e0e0; }
+    </style>
+</head>
+<body>
+    <h1>Nginx Logs with Filebeat</h1>
+    <p>This page generates logs that are collected by Filebeat and sent to Elasticsearch.</p>
+    
+    <div class="links">
+        <a href="/">Home</a>
+        <a href="/about">About Page</a>
+        <a href="/api/data">API Endpoint</a>
+        <a href="/products?category=books">Products</a>
+        <a href="/contact">Contact</a>
+        <a href="/not-found">404 Page</a>
+    </div>
+    
+    <button onclick="generateRequests()">Generate Multiple Requests</button>
+    
+    <script>
+        function generateRequests() {
+            const endpoints = ['/', '/about', '/api/data', '/products', '/contact', '/test'];
+            endpoints.forEach(endpoint => {
+                fetch(endpoint).catch(() => {});
+            });
+            alert('Generated requests to ' + endpoints.length + ' endpoints');
+        }
+    </script>
+</body>
+</html>
